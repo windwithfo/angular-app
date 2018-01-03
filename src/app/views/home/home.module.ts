@@ -7,7 +7,6 @@ import { HomeComponent }     from './home.component';
 import { HomePcComponent }   from './home-pc.component';
 import { HomeRoutingModule } from './home-routing.module';
 
-
 import {
   MatButtonModule,
   MatCheckboxModule,
