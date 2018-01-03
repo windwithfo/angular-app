@@ -1,21 +1,47 @@
+import { WeUiRootModule}     from 'ngx-weui';
+import { DialogComponent }   from '@component';
 import { NgModule }          from '@angular/core';
 import { FormsModule }       from '@angular/forms';
 import { CommonModule }      from '@angular/common';
 import { HomeComponent }     from './home.component';
+import { HomePcComponent }   from './home-pc.component';
 import { HomeRoutingModule } from './home-routing.module';
 
+
 import {
-  WeUiRootModule
-} from 'ngx-weui';
+  MatButtonModule,
+  MatCheckboxModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatInputModule,
+  MatDialogModule,
+  MatPaginatorModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     WeUiRootModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatDialogModule,
+    MatPaginatorModule,
     HomeRoutingModule
   ],
+  entryComponents: [DialogComponent],
   exports: [HomeComponent],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, HomePcComponent, DialogComponent]
 })
 export class HomeModule { }

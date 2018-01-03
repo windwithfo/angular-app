@@ -1,0 +1,38 @@
+<p>
+  home pc works!
+</p>
+<button mat-raised-button color="primary">Primary</button>
+<section>
+  <mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox>
+  <mat-checkbox [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+</section>
+<mat-form-field>
+  <mat-select placeholder="Favorite food">
+    <mat-option *ngFor="let food of foods" [value]="food.value">
+      {{ food.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<mat-radio-group>
+  <mat-radio-button value="1">Option 1</mat-radio-button>
+  <mat-radio-button value="2">Option 2</mat-radio-button>
+</mat-radio-group>
+<br>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<br>
+<ol>
+  <li>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </li>
+</ol>
+<br>
+<mat-paginator [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="pageEvent = $event">
+</mat-paginator>

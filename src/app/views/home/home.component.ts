@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   @ViewChild('toptips') toptips: ToptipsComponent;
   @ViewChild('success') successToast: ToastComponent;
 
+  year: Number = 2018;
+
   DT: any = {
     min: new Date(2015, 1, 5),
     max: new Date()
@@ -56,7 +58,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  showVal() {
+  showVal(env: any) {
     console.log(this.res);
   }
 

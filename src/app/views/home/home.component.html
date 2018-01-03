@@ -1,7 +1,7 @@
 <p>
-  home works!
+  home mobile works!
   <weui-button (click)="showVal($event)">成功样式按钮</weui-button>
-  <button weui-button weui-type="default" (click)="onShow('ios', 1)">iOS Dialog</button>
+  <button weui-button weui-type="default" (click)="onShow()">iOS Dialog</button>
   <weui-dialog #ios [config]="config"></weui-dialog>
 </p>
 <div class="weui-flex">
@@ -29,7 +29,7 @@
     </div>
   </div>
 </form>
-<button weui-button [weui-type]="'default'" (click)="onShowToast('success')">成功提示</button>
+<button weui-button [weui-type]="'default'" (click)="onShowToast()">成功提示</button>
 <button weui-button [weui-type]="'default'" (click)="onShowToptips('primary')">Primary Toptip</button>
 <weui-toast #success></weui-toast>
 <weui-toptips #toptips></weui-toptips>
