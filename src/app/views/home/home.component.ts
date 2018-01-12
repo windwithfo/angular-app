@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { ToastComponent }              from 'ngx-weui/toast';
-import { PickerService }               from 'ngx-weui/picker';
+import { PickerData }                  from 'ngx-weui/picker';
 import { ToptipsComponent }            from 'ngx-weui/toptips';
 
 import {
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('ios') ios: DialogComponent;
   @ViewChild('toptips') toptips: ToptipsComponent;
   @ViewChild('success') successToast: ToastComponent;
+  @ViewChild('picker') picker: PickerData;
 
   year: Number = 2018;
 
@@ -40,7 +41,7 @@ export class HomeComponent implements OnInit {
 
   config: DialogConfig = {};
 
-  constructor(private srv: PickerService) {}
+  constructor() {}
 
   ngOnInit() {
   }
@@ -53,9 +54,13 @@ export class HomeComponent implements OnInit {
   }
 
   onShowBySrv() {
-    this.srv.showDateTime('date').subscribe((res: any) => {
+    (<PickerData>this.picker).show().subscribe((res: any) => {
       console.log('date', res);
     });
+  }
+
+  timechange() {
+    console.log(this.res.date);
   }
 
   showVal(env: any) {

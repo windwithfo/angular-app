@@ -22,8 +22,8 @@
             <label class="weui-label">Date</label>
         </div>
         <div class="weui-cell__bd">
-          <weui-date-picker placeholder="Pick a Date"
-            [min]="DT.min" [max]="DT.max"
+          <weui-date-picker #picker placeholder="Pick a Date"
+            [min]="DT.min" [max]="DT.max" (change)="timechange()"
             [(ngModel)]="res.date" name="date"></weui-date-picker>
         </div>
     </div>

@@ -1,9 +1,10 @@
-import { WeUiRootModule}     from 'ngx-weui';
-import { DialogComponent }   from '@component';
+import { WeUiRootModule }    from 'ngx-weui';
 import { NgModule }          from '@angular/core';
 import { FormsModule }       from '@angular/forms';
 import { CommonModule }      from '@angular/common';
 import { HomeComponent }     from './home.component';
+import { DialogComponent }   from '../../components';
+import { PostComponent }     from '../../components';
 import { HomePcComponent }   from './home-pc.component';
 import { HomeRoutingModule } from './home-routing.module';
 
@@ -39,8 +40,8 @@ import {
     MatPaginatorModule,
     HomeRoutingModule
   ],
-  entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent, PostComponent],
   exports: [HomeComponent],
-  declarations: [HomeComponent, HomePcComponent, DialogComponent]
+  declarations: [HomeComponent, HomePcComponent, DialogComponent, PostComponent]
 })
 export class HomeModule { }

@@ -1,4 +1,4 @@
-import { DialogComponent }      from '@component';
+import { DialogComponent }      from '../../components';
 import { Component, OnInit }    from '@angular/core';
 import { MatDialog, PageEvent } from '@angular/material';
 

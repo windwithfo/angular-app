@@ -3,8 +3,8 @@
 </p>
 <button mat-raised-button color="primary">Primary</button>
 <section>
-  <mat-checkbox [(ngModel)]="checked">Checked</mat-checkbox>
-  <mat-checkbox [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+  <mat-checkbox>Checked</mat-checkbox>
+  <mat-checkbox>Indeterminate</mat-checkbox>
 </section>
 <mat-form-field>
   <mat-select placeholder="Favorite food">
@@ -36,3 +36,4 @@
   [pageSizeOptions]="pageSizeOptions"
   (page)="pageEvent = $event">
 </mat-paginator>
+<app-post></app-post>
