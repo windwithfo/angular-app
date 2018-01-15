@@ -1,6 +1,7 @@
-import { DialogComponent }      from '../../components';
 import { Component, OnInit }    from '@angular/core';
+import { DialogComponent }      from '../../components';
 import { MatDialog, PageEvent } from '@angular/material';
+import { Title }                from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home.pc',
@@ -35,9 +36,10 @@ export class HomePcComponent implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private titleService: Title) {}
 
   ngOnInit() {
+    this.titleService.setTitle('pc-home');
   }
 
   openDialog(): void {

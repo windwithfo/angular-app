@@ -1,22 +1,21 @@
 import 'zone.js/dist/zone-node';
-
-import express from 'express';
-import { ngExpressEngine } from '@nguniversal/express-engine';
+import { log }              from 'util';
+import * as path            from 'path';
+import express              from 'express';
+import { enableProdMode }   from '@angular/core';
+import { ngExpressEngine }  from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
-import { log } from 'util';
-import * as path from 'path';
-import { enableProdMode } from '@angular/core';
 
 enableProdMode();
 
-const DIST_FOLDER = path.join(process.cwd(), 'dist');
+const DIST_FOLDER = path.join(process.cwd(), '../dist');
 const PORT = process.env.PORT0 || 4200;
 const app = express();
 
 const {
   ServerAppModuleNgFactory,
   LAZY_MODULE_MAP
-} = require(`./dist/server/main.bundle`);
+} = require(`../dist/server/main.bundle`);
 
 const provider = provideModuleMap(LAZY_MODULE_MAP);
 

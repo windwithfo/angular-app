@@ -1,13 +1,18 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
-import { ToastComponent }              from 'ngx-weui/toast';
-import { PickerData }                  from 'ngx-weui/picker';
-import { ToptipsComponent }            from 'ngx-weui/toptips';
+import { ToastComponent }   from 'ngx-weui/toast';
+import { PickerData }       from 'ngx-weui/picker';
+import { ToptipsComponent } from 'ngx-weui/toptips';
+import { Title }            from '@angular/platform-browser';
+
+import {
+  Component,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 
 import {
   DialogComponent,
   DialogConfig
 } from 'ngx-weui/dialog';
-import { log } from 'util';
 
 @Component({
   selector: 'app-home',
@@ -41,9 +46,10 @@ export class HomeComponent implements OnInit {
 
   config: DialogConfig = {};
 
-  constructor() {}
+  constructor(private titleService: Title) {}
 
   ngOnInit() {
+    this.titleService.setTitle('m-home');
   }
 
   onShow() {
