@@ -5,30 +5,29 @@ import { isPlatformServer } from '@angular/common';
 const RESULT_KEY = makeStateKey<string>('result');
 
 @Component({
-    selector: 'app-post',
-    template: '<div>{{ result }}</div>'
+  selector: 'app-post',
+  template: '<div>{{ result }}</div>'
 })
 export class PostComponent implements OnInit {
-    public result;
-    private isServer: boolean;
-    constructor(
-        private tstate: TransferState,
-        @Inject(PLATFORM_ID) platformId
-    ) {
-        this.isServer = isPlatformServer(platformId);
-    }
+  public result;
+  private isServer: boolean;
 
-    ngOnInit() {
-        if (this.tstate.hasKey(RESULT_KEY)) {
-            // We are in the browser
-            this.result = this.tstate.get(RESULT_KEY, '');
-        } else if (this.isServer) {
-            // We are on the server
-            this.result = 'Im created on the server!';
-            this.tstate.set(RESULT_KEY, 'Im created on the server!');
-        } else {
-            // No result received
-            this.result = 'Im created in the browser!';
-        }
+  constructor(private tstate: TransferState, @Inject(PLATFORM_ID) platformId) {
+    this.isServer = isPlatformServer(platformId);
+  }
+
+  ngOnInit() {
+    if (this.tstate.hasKey(RESULT_KEY)) {
+      // We are in the browser
+      this.result = this.tstate.get(RESULT_KEY, '');
     }
+    else if (this.isServer) {
+      // We are on the server
+      this.tstate.set(RESULT_KEY, 'Im created on the server!');
+    }
+    else {
+      // No result received
+      this.result = 'Im created in the browser!';
+    }
+  }
 }

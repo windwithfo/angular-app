@@ -1,7 +1,15 @@
-import { Component, OnInit }    from '@angular/core';
+import { isPlatformBrowser }    from '@angular/common';
 import { DialogComponent }      from '../../components';
 import { MatDialog, PageEvent } from '@angular/material';
 import { Title }                from '@angular/platform-browser';
+
+import {
+  Component,
+  OnInit,
+  PLATFORM_ID,
+  APP_ID,
+  Inject
+} from '@angular/core';
 
 @Component({
   selector: 'app-home.pc',
@@ -36,10 +44,17 @@ export class HomePcComponent implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent;
 
-  constructor(public dialog: MatDialog, private titleService: Title) {}
+  constructor(public dialog: MatDialog, private titleService: Title,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(APP_ID) private appId: string) {
+  }
 
   ngOnInit() {
     this.titleService.setTitle('pc-home');
+    console.log('PLATFORM_ID', this.platformId);
+    const platform = isPlatformBrowser(this.platformId) ?
+      'in the browser' : 'on the server';
+    console.log(`Running ${platform} with appId=${this.appId}`);
   }
 
   openDialog(): void {

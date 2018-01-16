@@ -16,9 +16,6 @@
       "dom"
     ],
     "baseUrl": "./",
-    "paths": {
-      "@component": ["./app/components"]
-    },
     "module": "es2015"
   }
 }

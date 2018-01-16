@@ -1,18 +1,23 @@
-import { ToastComponent }   from 'ngx-weui/toast';
-import { PickerData }       from 'ngx-weui/picker';
-import { ToptipsComponent } from 'ngx-weui/toptips';
-import { Title }            from '@angular/platform-browser';
+import { ToastComponent }    from 'ngx-weui/toast';
+import { PickerData }        from 'ngx-weui/picker';
+import { ToptipsComponent }  from 'ngx-weui/toptips';
+import { isPlatformBrowser } from '@angular/common';
+import { Title }             from '@angular/platform-browser';
 
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild,
+  PLATFORM_ID,
+  APP_ID,
+  Inject
 } from '@angular/core';
 
 import {
   DialogComponent,
   DialogConfig
 } from 'ngx-weui/dialog';
+import { loadavg } from 'os';
 
 @Component({
   selector: 'app-home',
@@ -46,7 +51,14 @@ export class HomeComponent implements OnInit {
 
   config: DialogConfig = {};
 
-  constructor(private titleService: Title) {}
+  constructor(private titleService: Title,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(APP_ID) private appId: string) {
+    console.log('PLATFORM_ID', platformId);
+    const platform = isPlatformBrowser(platformId) ?
+      'in the browser' : 'on the server';
+    console.log(`Running ${platform} with appId=${appId}`);
+  }
 
   ngOnInit() {
     this.titleService.setTitle('m-home');
