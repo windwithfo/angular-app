@@ -22,8 +22,8 @@ const provider = provideModuleMap(LAZY_MODULE_MAP);
 app.engine(
   'html',
   ngExpressEngine({
-      bootstrap: ServerAppModuleNgFactory,
-      providers: [provider]
+    bootstrap: ServerAppModuleNgFactory,
+    providers: [provider]
   })
 );
 

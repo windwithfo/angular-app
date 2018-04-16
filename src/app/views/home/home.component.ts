@@ -1,8 +1,6 @@
-import { ToastComponent }    from 'ngx-weui/toast';
-import { PickerData }        from 'ngx-weui/picker';
-import { ToptipsComponent }  from 'ngx-weui/toptips';
 import { isPlatformBrowser } from '@angular/common';
 import { Title }             from '@angular/platform-browser';
+import { loadavg } from 'os';
 
 import {
   Component,
@@ -14,10 +12,12 @@ import {
 } from '@angular/core';
 
 import {
+  ToastComponent,
   DialogComponent,
+  ToptipsComponent,
+  PickerData,
   DialogConfig
-} from 'ngx-weui/dialog';
-import { loadavg } from 'os';
+} from 'ngx-weui';
 
 @Component({
   selector: 'app-home',

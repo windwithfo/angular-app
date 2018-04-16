@@ -8,7 +8,7 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 enableProdMode();
 
-const DIST_FOLDER = path.join(process.cwd(), '../dist');
+const DIST_FOLDER = path.join(process.cwd(), './dist');
 const PORT = process.env.PORT0 || 4200;
 const app = express();
 
